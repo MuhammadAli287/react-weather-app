@@ -37,13 +37,12 @@ const getWeatherIconCode = (code) => {
   return "❓";
 };
 
-
 const fetchweather = async (cityname)=>{
      try{
         setloading(true)
         seterror(false)
 
-         let city = cities[cityname]
+        let city = cities["Lahore"]
         if(!city){
             seterror("city not found");
             setloading(false);
@@ -59,12 +58,13 @@ const fetchweather = async (cityname)=>{
 
         if(!response.ok){
             // agar apni marzi ka error msg print karna ho 
-            throw new Error(`API Error: ${response.status}`)
+            throw new Error(`API Error request rejected: ${response.status}`)
         };
     
         // convertind data into js object (json format)
-        let data = await response.json
+        let data = await response.json()
 
+     console.log(data);
         // passing values to states
         setweather(data)
         setselectedcity(city)
@@ -78,8 +78,43 @@ const fetchweather = async (cityname)=>{
 
 };
 
+
+
+// use of use effect useeffect ky andar
+// arrow func banaien gy, or yeah bar bar chalta hai
+//  is lya empty array use karien gy usay bound karnay ky liya
+
+useEffect (()=>{
+    fetchweather("Lahore")
+},[])
+
+//  work for dropdown 
+const handlecitychange=(e)=>{
+ const city = e.target.value
+ fetchweather(city)
+}
+
+// work for input field
+const handlesearch=(e)=>{
+   e.preventDefault()
+
+   if(searchinput.trim()===''){
+    seterror("city cannot be empty");
+    return;
+   }
+
+}
+
+if(cities[searchinput]){
+    fetchweather(searchinput)
+    setsearchinput("")
+}else{
+    seterror("Error: City not found");
 }
 
 
+
+
+};
 
 
