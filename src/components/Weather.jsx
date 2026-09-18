@@ -214,7 +214,7 @@ export default function WeatherApp() {
       
       // MAKE THE API REQUEST
       // fetch() sends a request to the API and waits for response
-      console.log('Fetching from::', apiUrl); // For debugging
+      console.log('Fetching from:::', apiUrl); // For debugging
       const response = await fetch(apiUrl);
       
       // Check if response is OK (status 200)
@@ -229,11 +229,11 @@ export default function WeatherApp() {
       setWeather(data);
       setSelectedCity(cityName);
       
-      console.log('Weather data received::', data); // For debugging
+      console.log('Weather data received:::', data); // For debugging
       
     } catch (error) {
       // If any error occurs, store it in error state
-      console.error('Error fetching weather::', error);
+      console.error('Error fetching weather:::', error);
       setError(error.message);
     } finally {
       // Always set loading to false when done
