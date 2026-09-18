@@ -214,7 +214,7 @@ export default function WeatherApp() {
       
       // MAKE THE API REQUEST
       // fetch() sends a request to the API and waits for response
-      console.log('Fetching from:::', apiUrl); // For debugging
+      console.log('Fetching from:::::', apiUrl); // For debugging
       const response = await fetch(apiUrl);
       
       // Check if response is OK (status 200)
