@@ -198,7 +198,7 @@ export default function WeatherApp() {
       const city = cities[cityName];
       
       if (!city) {
-        setError('City not found!');
+        setError('City not found!!');
         setLoading(false);
         return;
       }
@@ -214,7 +214,7 @@ export default function WeatherApp() {
       
       // MAKE THE API REQUEST
       // fetch() sends a request to the API and waits for response
-      console.log('Fetching from:::::', apiUrl); // For debugging
+      console.log('Fetching from::', apiUrl); // For debugging
       const response = await fetch(apiUrl);
       
       // Check if response is OK (status 200)
