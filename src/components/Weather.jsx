@@ -219,7 +219,7 @@ export default function WeatherApp() {
       
       // Check if response is OK (status 200)
       if (!response.ok) {
-        throw new Error(`API Error:: ${response.status}`);
+        throw new Error(`API Error: ${response.status}`);
       }
       
       // Convert response to JSON (JavaScript object)
@@ -229,11 +229,11 @@ export default function WeatherApp() {
       setWeather(data);
       setSelectedCity(cityName);
       
-      console.log('Weather data received::', data); // For debugging
+      console.log('Weather data received:', data); // For debugging
       
     } catch (error) {
       // If any error occurs, store it in error state
-      console.error('Error fetching weather::', error);
+      console.error('Error is fetching weather::', error);
       setError(error.message);
     } finally {
       // Always set loading to false when done
